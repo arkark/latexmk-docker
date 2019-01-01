@@ -8,7 +8,7 @@ RUN apk --no-cache add sed
 
 RUN echo -e '#!/usr/bin/env perl\n\
 $latex            = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -halt-on-error";\n\
-$latex_silent     = "uplatex -synctex=1 -halt-on-error -interaction=batchmode";\n\
+$latex_silent     = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -halt-on-error -interaction=batchmode";\n\
 $bibtex           = "upbibtex";\n\
 $biber            = "biber --bblencoding=utf8 -u -U --output_safechars";\n\
 $dvipdf           = "dvipdfmx %O -o %D %S";\n\
