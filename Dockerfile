@@ -4,7 +4,8 @@
 
 FROM paperist/alpine-texlive-ja
 
-RUN apk --no-cache add sed
+RUN apk --no-cache add sed && \
+    tlmgr install algorithms algorithmicx algorithm2e
 
 RUN echo -e '#!/usr/bin/env perl\n\
 $latex            = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -halt-on-error";\n\
