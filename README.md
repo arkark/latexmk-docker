@@ -1,6 +1,4 @@
 
-:warning: WIP :warning:
-
 ## Usage
 
 1. Build this Docker image as follows:
