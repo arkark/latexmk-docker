@@ -21,8 +21,9 @@ $pdf_previewer    = ":"; # do nothing\n\
 $out_dir          = "out";\n\
 ' > $HOME/.latexmkrc
 
-ENTRYPOINT latexmk -pvc main 2>&1 \
-  | sed -uE -e '/^!/!bend;s/^.*$/\x1b[30;41m&\x1b[0m/;:loop;N;/(\nNo pages of output.)|(\nOutput written)/bend;s/\n([^\n]*$)/\n\x1b[31m\1\x1b[0m/;bloop;:end;P;D' \
+ENTRYPOINT (latexmk -pvc main > /dev/null 2>&1 &) && \
+    tail -F -n +1 out/main.log \
+  | sed -uE -e '/^!/!bend;s/^.*$/\x1b[30;41m&\x1b[0m/;:loop;N;/\nHere /bend;s/\n([^\n]*$)/\n\x1b[31m\1\x1b[0m/;bloop;:end;P;D' \
   | sed -u  -e '/^LaTeX Warning:/s/^.*$/\x1b[33m&\x1b[0m/' \
             -e '/^LaTeX Font Warning:/s/^.*$/\x1b[33m&\x1b[0m/' \
             -e '/^Package babel Warning:/s/^.*$/\x1b[33m&\x1b[0m/' \
