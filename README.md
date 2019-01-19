@@ -9,7 +9,6 @@ $ docker pull arkark/latexmk
 ## Usage
 
 1. Prepare `main.tex` and some files.
-    - [OPTION] Add `.latexmkrc` if you want to customize latexmk by yourself.
 2. Move to the directory.
 3. Execute:
 ```sh
