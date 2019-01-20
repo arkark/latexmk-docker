@@ -8,8 +8,8 @@ RUN apk --no-cache add sed && \
     tlmgr install algorithms algorithmicx algorithm2e
 
 RUN echo -e '#!/usr/bin/env perl\n\
-$latex            = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -halt-on-error";\n\
-$latex_silent     = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -halt-on-error -interaction=batchmode";\n\
+$latex            = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -interaction=nonstopmode -halt-on-error";\n\
+$latex_silent     = "find . -type f -name '"'"'*.tex'"'"' -print0 | xargs -0 sed -i -e '"'"'s/、/，/g'"'"' -e '"'"'s/。/．/g'"'"' && uplatex -synctex=1 -interaction=batchmode -halt-on-error";\n\
 $bibtex           = "upbibtex";\n\
 $biber            = "biber --bblencoding=utf8 -u -U --output_safechars";\n\
 $dvipdf           = "dvipdfmx %O -o %D %S";\n\
@@ -22,6 +22,7 @@ $out_dir          = "out";\n\
 ' > $HOME/.latexmkrc
 
 ENTRYPOINT \
+    ([ -f main.tex ] || (echo -e "\x1b[31mCould not find file 'main.tex'\x1b[0m" && false)) && \
     mkdir -p out && \
     touch out/main.log && \
     (latexmk -pvc main > /dev/null 2>&1 &) && \
