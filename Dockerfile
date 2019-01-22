@@ -4,7 +4,7 @@
 
 FROM paperist/alpine-texlive-ja
 
-RUN apk --no-cache add sed && \
+RUN apk --no-cache add sed ghostscript && \
     tlmgr install algorithms algorithmicx algorithm2e
 
 RUN echo -e '#!/usr/bin/env perl\n\
