@@ -25,9 +25,8 @@ ENTRYPOINT \
     ([ -f main.tex ] || (echo -e "\x1b[31mCould not find file 'main.tex'\x1b[0m" && false)) && \
     mkdir -p out && \
     touch out/main.log && \
-    (latexmk -pvc main > /dev/null 2>&1 &) && \
-    tail -F -n +1 out/main.log \
-      | sed -uE -e '/^!/!bend;s/^.*$/\x1b[30;41m&\x1b[0m/;:loop;N;/\nHere /bend;s/\n([^\n]*$)/\n\x1b[31m\1\x1b[0m/;bloop;:end;P;D' \
+    latexmk -pvc main 2>&1 \
+      | sed -uE -e '/^!/!bend;s/^.*$/\x1b[30;41m&\x1b[0m/;:loop;N;/(\nNo pages of output.)|(\nOutput written)/bend;s/\n([^\n]*$)/\n\x1b[31m\1\x1b[0m/;bloop;:end;P;D' \
       | sed -uE  -e '/(^LaTeX Warning:)|(^LaTeX Font Warning:)|(^Package babel Warning:)|(^Runaway argument\?)|(^Underfull \\hbox)|(^Overfull \\hbox)/!bend;s/^.*$/\x1b[33m&\x1b[0m/;:loop;N;/\n$/bend;s/\n([^\n]*$)/\n\x1b[33m\1\x1b[0m/;bloop;:end;P;D' \
       | sed -u  -e '/^Running /s/^.*$/\x1b[0m&\x1b[0m/' \
       | sed -uE -e '/^Latexmk: /!bend;s/^.*$/\x1b[0m&\x1b[0m/;:loop;N;/\n  [^\n]*$/s/\n([^\n]*$)/\n\x1b[34m\1\x1b[0m/;tloop;:end;P;D' \
