@@ -1,4 +1,4 @@
-# arkark/latexmk
+# :whale:arkark/latexmk
 
 ## Install
 
