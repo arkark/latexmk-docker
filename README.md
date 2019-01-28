@@ -12,6 +12,6 @@ $ docker pull arkark/latexmk
 2. Move to the directory.
 3. Execute:
 ```sh
-$ docker run --rm -it -v $PWD:/workdir arkark/latexmk
+$ docker run --rm -it -v $PWD:/workdir -u $(id -u):$(id -g) arkark/latexmk
 ```
 4. Edit latex files and preview the output pdf while monitoring a latexmk's log.
