@@ -14,4 +14,5 @@ $ docker pull arkark/latexmk
 ```sh
 $ docker run --rm -it -v $PWD:/workdir -u $(id -u):$(id -g) arkark/latexmk
 ```
-4. Edit latex files and preview the output pdf while monitoring a latexmk's log.
+4. Edit latex files and preview `out/main.pdf` while monitoring a latexmk's log.
+5. Press Ctrl+C to exit.
