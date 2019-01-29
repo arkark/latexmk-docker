@@ -6,6 +6,11 @@ if ! [ -f main.tex ]; then
   exit 1
 fi
 
+if ! [ -r main.tex ]; then
+  echo -e "\x1b[31mCould not read file 'main.tex': Permission denied\x1b[0m"
+  exit 1
+fi
+
 export HOME=/home/user
 
 latexmk -pvc main 2>&1 \
