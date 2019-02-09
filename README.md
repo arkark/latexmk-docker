@@ -1,4 +1,12 @@
-# :whale:arkark/latexmk
+# :whale: arkark/latexmk
+
+Useful LaTeX environment on Docker.
+
+- One command to LaTeX environment
+- Colorful latexmk output
+- Automatic conversion from `、` `。` to `，` `．`
+
+![](img/demo.png)
 
 ## Install
 
@@ -16,3 +24,7 @@ $ docker run --rm -it -v $PWD:/workdir -u $(id -u):$(id -g) arkark/latexmk
 ```
 4. Edit latex files and preview `out/main.pdf` while monitoring a latexmk's log.
 5. Press Ctrl+C to exit.
+
+#### Option
+
+- If you want to customize latexmk by yourself, add `.latexmkrc` file to the working directory.
