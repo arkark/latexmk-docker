@@ -25,7 +25,17 @@ $ docker pull arkark/latexmk
 4. Edit latex files and preview `out/main.pdf` while monitoring a latexmk's log.
 5. Press `Ctrl+C` to exit.
 
-#### Options
+## Options
 
-- It's recommended to use an alias of the above command.
-- If you want to customize latexmk by yourself, add `.latexmkrc` file to the working directory.
+If you want to customize latexmk by yourself, add `.latexmkrc` file to the working directory.
+
+For example, add the following `.latexmkrc` when using lualatex:
+```perl
+#!/usr/bin/env perl
+$pdflatex = "lualatex --synctex=1 --interaction=nonstopmode --halt-on-error %O %S";
+$max_repeat       = 5;
+$pdf_mode         = 1;
+$pdf_previewer    = ":";
+$out_dir          = "out";
+$pvc_view_file_via_temporary = 0;
+```
