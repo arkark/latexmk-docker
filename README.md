@@ -16,7 +16,7 @@ $ docker pull arkark/latexmk
 
 ## Usage
 
-1. Prepare `main.tex` and some necessary files (E.g. a `.bib` file).
+1. Prepare `main.tex` and some necessary files: e.g., other `*.tex` files, `*.bib` files, and image files.
 2. Move to the directory.
 3. Execute:
     ```sh
