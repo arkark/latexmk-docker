@@ -27,9 +27,11 @@ $ docker pull arkark/latexmk
 
 ## Options
 
-If you want to customize latexmk by yourself, add `.latexmkrc` file to the working directory.
+The default latexmk file is [here](.latexmkrc).
+If you want to customize it, add `.latexmkrc` file to the working directory.
 
 For example, add the following `.latexmkrc` when using lualatex:
+
 ```perl
 #!/usr/bin/env perl
 $pdflatex = "lualatex --synctex=1 --interaction=nonstopmode --halt-on-error %O %S";
