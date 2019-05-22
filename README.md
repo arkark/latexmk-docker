@@ -27,7 +27,7 @@ $ docker pull arkark/latexmk
 
 ## Options
 
-The default latexmk file is [here](.latexmkrc).
+The default latexmk file is [here](.latexmkrc), which uses uplatex.
 If you want to customize it, add `.latexmkrc` file to the working directory.
 
 For example, add the following `.latexmkrc` when using lualatex:
