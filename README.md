@@ -1,5 +1,8 @@
 # :whale: arkark/latexmk
 
+[![Docker build](https://img.shields.io/docker/cloud/build/arkark/latexmk.svg)](https://hub.docker.com/r/arkark/latexmk/)
+[![Docker automated build](https://img.shields.io/docker/cloud/automated/arkark/latexmk.svg)](https://hub.docker.com/r/arkark/latexmk/)
+
 Useful LaTeX environment on Docker.
 
 - **One command** to LaTeX environment
