@@ -9,7 +9,7 @@ Useful LaTeX environment on Docker.
 - Colored latexmk output
 - Automatic conversion from `、` `。` to `，` `．`
 
-![](img/demo.png)
+![](screenshot.png)
 
 ## Installation
 
