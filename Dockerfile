@@ -4,7 +4,11 @@
 
 FROM paperist/alpine-texlive-ja
 
-RUN apk --no-cache add sed ghostscript && \
+RUN apk --no-cache add \
+        sed \
+        ghostscript \
+        py-pygments && \
+    tlmgr update --self && \
     tlmgr install algorithms algorithmicx algorithm2e
 
 RUN mkdir /home/user
