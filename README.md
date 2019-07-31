@@ -47,4 +47,4 @@ $pvc_view_file_via_temporary = 0;
 
 ## Links
 
-- [Article (Japanese) | Ark's Blog](https://ark4rk.hatenablog.com/entry/2019/02/10/215152)
+- [Dockerで動くいい感じのLaTeX環境をつくった話 | Ark's Blog](https://ark4rk.hatenablog.com/entry/2019/02/10/215152)
