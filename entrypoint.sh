@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 set -eu
 
 if ! [ -f main.tex ]; then
