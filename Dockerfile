@@ -12,6 +12,7 @@ RUN apt-get update \
     && apt-get -y install \
         build-essential \
         wget \
+        git \
         gosu \
         libfontconfig1-dev \
         libfreetype6-dev \
@@ -40,6 +41,7 @@ RUN apt-get update \
         collection-latexrecommended \
         collection-luatex \
         collection-mathscience \
+        collection-plaingeneric \
         collection-xetex \
         latexmk \
         latexdiff
