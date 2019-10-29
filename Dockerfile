@@ -41,7 +41,8 @@ RUN apt-get update \
         collection-luatex \
         collection-mathscience \
         collection-xetex \
-        latexmk
+        latexmk \
+        latexdiff
 
 RUN mkdir /tmp/latexmk
 
@@ -49,8 +50,10 @@ COPY .latexmkrc /tmp/latexmk/
 
 COPY entrypoint.sh /usr/local/bin/
 
-COPY latexmk-ext.sh /usr/local/bin/
+COPY latexmk-ext /usr/local/bin/
 
 WORKDIR /workdir
 
-ENTRYPOINT ["entrypoint.sh", "latexmk-ext.sh"]
+ENTRYPOINT ["entrypoint.sh"]
+
+CMD ["latexmk-ext"]
