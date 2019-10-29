@@ -13,7 +13,7 @@ Useful LaTeX environment on Docker.
 
 ## Installation
 
-```sh
+```console
 $ docker pull arkark/latexmk
 ```
 
@@ -22,8 +22,8 @@ $ docker pull arkark/latexmk
 1. Prepare `main.tex` and some necessary files: e.g., other `*.tex` files, `*.bib` files, and image files.
 2. Move to the directory.
 3. Execute:
-    ```sh
-    $ docker run --rm -it -v $PWD:/workdir -u $(id -u):$(id -g) arkark/latexmk
+    ```console
+    $ docker run --rm -it -v $PWD:/workdir -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) arkark/latexmk
     ```
 4. Edit latex files and preview `out/main.pdf` while monitoring a latexmk's log.
 5. Press `Ctrl+C` to exit.
@@ -43,6 +43,20 @@ $pdf_mode         = 1;
 $pdf_previewer    = ":";
 $out_dir          = "out";
 $pvc_view_file_via_temporary = 0;
+```
+
+## Advanced Usage
+
+Latexdiff:
+
+```console
+$ docker run --rm -it -v $PWD:/workdir -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) arkark/latexmk latexdiff-vc <ARGS>
+```
+
+Colored latexmk with a root filename:
+
+```console
+$ docker run --rm -it -v $PWD:/workdir -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) arkark/latexmk latexmk-ext <FILE_NAME>
 ```
 
 ## Links
