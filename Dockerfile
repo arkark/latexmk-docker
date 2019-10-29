@@ -49,9 +49,9 @@ RUN apt-get update \
 
 COPY .latexmkrc /tmp/latexmk/
 
-COPY entrypoint.sh /usr/local/bin/
+COPY bin/entrypoint.sh /usr/local/bin/
 
-COPY latexmk-ext /usr/local/bin/
+COPY bin/latexmk-ext /usr/local/bin/
 
 WORKDIR /workdir
 
