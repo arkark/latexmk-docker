@@ -4,6 +4,11 @@ set -eu
 
 FILE_NAME=${1:-main.tex}
 
+if ! [ -f "$FILE_NAME" ]; then
+  echo -e "\x1b[31mCould not find file '$FILE_NAME'\x1b[0m"
+  exit 1
+fi
+
 if ! [ -r "$FILE_NAME" ]; then
   echo -e "\x1b[31mCould not read file '$FILE_NAME': Permission denied\x1b[0m"
   exit 1

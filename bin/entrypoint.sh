@@ -2,15 +2,15 @@
 
 set -eu
 
-if ! [ -f main.tex ]; then
-  echo -e "\x1b[31mCould not find file 'main.tex'\x1b[0m"
+if [ -z "${USER_ID:-}" ]; then
+  echo -e "\x1b[31m'USER_ID' is undefined\x1b[0m"
   exit 1
 fi
 
-USER_ID=$(ls -n main.tex | cut -d ' ' -f 3)
-GROUP_ID=$(ls -n main.tex | cut -d ' ' -f 4)
-
-echo "Starting with UID:GID = $USER_ID:$GROUP_ID"
+if [ -z "${GROUP_ID:-}" ]; then
+  echo -e "\x1b[31m'GROUP_ID' is undefined\x1b[0m"
+  exit 1
+fi
 
 if ! id -u user > /dev/null 2>&1; then
   useradd -u $USER_ID -o -m user
