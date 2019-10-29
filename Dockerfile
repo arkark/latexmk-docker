@@ -44,9 +44,8 @@ RUN apt-get update \
         collection-plaingeneric \
         collection-xetex \
         latexmk \
-        latexdiff
-
-RUN mkdir /tmp/latexmk
+        latexdiff \
+    && mkdir /tmp/latexmk
 
 COPY .latexmkrc /tmp/latexmk/
 
