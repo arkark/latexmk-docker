@@ -10,4 +10,3 @@ $pdf_mode         = 3;
 $pdf_previewer    = ":"; # do nothing
 $out_dir          = "out";
 $pvc_view_file_via_temporary = 0;
-
