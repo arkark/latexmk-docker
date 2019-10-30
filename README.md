@@ -17,7 +17,7 @@ Useful LaTeX environment on Docker.
 $ docker pull arkark/latexmk
 ```
 
-:warning: Docker image size: **3.24GB**
+:warning: Docker image size: **1.64GB**
 
 ## Usage
 
