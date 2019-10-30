@@ -26,7 +26,7 @@ RUN apt-get update \
     && mkdir /tmp/install-tl-unx \
     && wget -O - ftp://tug.org/historic/systems/texlive/2019/install-tl-unx.tar.gz \
         | tar -xzv -C /tmp/install-tl-unx --strip-components=1 \
-    && echo "selected_scheme scheme-basic" \
+    && /bin/echo -e 'selected_scheme scheme-basic\ntlpdbopt_install_docfiles 0\ntlpdbopt_install_srcfiles 0' \
         > /tmp/install-tl-unx/texlive.profile \
     && /tmp/install-tl-unx/install-tl \
         --profile /tmp/install-tl-unx/texlive.profile \
