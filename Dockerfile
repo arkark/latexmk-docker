@@ -6,7 +6,7 @@ FROM ubuntu:eoan
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS=yes
-ENV PATH="/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
+ENV PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 
 RUN apt-get update \
     && apt-get -y install \
@@ -24,7 +24,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && pip3 install pygments \
     && mkdir /tmp/install-tl-unx \
-    && wget -O - ftp://tug.org/historic/systems/texlive/2019/install-tl-unx.tar.gz \
+    && wget -O - ftp://tug.org/historic/systems/texlive/2020/install-tl-unx.tar.gz \
         | tar -xzv -C /tmp/install-tl-unx --strip-components=1 \
     && /bin/echo -e 'selected_scheme scheme-basic\ntlpdbopt_install_docfiles 0\ntlpdbopt_install_srcfiles 0' \
         > /tmp/install-tl-unx/texlive.profile \
