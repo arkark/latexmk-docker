@@ -29,6 +29,10 @@ If you want to install all packages of TeX Live, pull `arkark/latexmk:full` whos
     ```console
     $ docker run --rm -it -v $PWD:/workdir -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) arkark/latexmk
     ```
+    If you use Mac, execute:
+    ```console
+    $ docker run --rm -it -v $PWD:/workdir arkark/latexmk
+    ```
 4. Edit latex files and preview `out/main.pdf` while monitoring a latexmk's log.
 5. Press `Ctrl+C` to exit.
 
