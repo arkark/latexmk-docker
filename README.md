@@ -17,9 +17,9 @@ Useful LaTeX environment on Docker.
 $ docker pull arkark/latexmk
 ```
 
-- Docker image size: **1.64GB**
+- Docker image size: **2.12GB**
 
-If you want to install all packages of TeX Live, pull `arkark/latexmk:full` whose size is 3.75GB :warning:.
+If you want to install all packages of TeX Live, pull `arkark/latexmk:full` whose size is 4.36GB :warning:.
 
 ## Usage
 
