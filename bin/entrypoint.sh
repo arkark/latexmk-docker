@@ -17,7 +17,9 @@ if ! test -z "${USER_ID:-}" && ! test -z "${GROUP_ID:-}"; then
   exec gosu user "$@"
 
 elif test -z "${USER_ID:-}" && test -z "${GROUP_ID:-}"; then
-  # Mac
+  # Mac or Windows
+
+  cp /tmp/latexmk/.latexmkrc /root/
 
   exec "$@"
 
